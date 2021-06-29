@@ -42,7 +42,7 @@ alias cu='composer update'
 alias chmodp='sudo chmod 777 -R'
 
 #git
-alias gam='git add . git commit -m'
+alias gam='git commit -am'
 alias gps='git push origin'
 alias gpu='git pull origin'
 alias gpsm='git push origin master'
