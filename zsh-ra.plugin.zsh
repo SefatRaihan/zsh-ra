@@ -5,7 +5,7 @@ alias pa='php artisan'
 alias pas='php artisan serve'
 alias pat='php artisan tinker'
 #migration
-alias pams='php artisan migrate'
+alias pam='php artisan migrate'
 alias pams='php artisan migrate:status'
 alias pamf='php artisan migrate:fresh'
 alias pamrf='php artisan migrate:refresh'
