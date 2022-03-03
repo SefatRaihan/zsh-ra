@@ -2,38 +2,39 @@
 
 read -p $'\e[0;33m'"Your Virtual Host : "$'\e[0m' host_name;
 
-read -p $'\e[0;33m'"Project Path : /var/www/"$'\e[0m' project_path
+read -p $'\e[0;33m'"Project Path : "$'\e[0m' project_path
 
-if [ ${#host_name} -gt 0 ] && [ ${#project_path} -gt 0 ]; then
+read -p $'\e[0;33m'"PHP Version : "$'\e[0m' php_version
 
-	sudo cat > /etc/nginx/sites-available/$host_name.conf <<-EOF
-server {
-	listen 80;
-	root /var/www/$project_path;
-	index index.html index.htm index.php;
-	server_name $host_name;
+if [ ${#host_name} -gt 0 ] && [ ${#project_path} -gt 0 && [ ${#php_version} -gt 0 ]; then
+
+	sudo cat > /etc/nginx/sites-available/$host_name.conf <<-EOF 
+	server { 
 	EOF
+
+	sudo echo -e "	listen 80;
+	root $project_path;
+	index index.html index.htm index.php;
+	server_name $host_name;" >> /etc/nginx/sites-available/$host_name.conf
 	
 	sudo echo '
-
 	location / {
 		try_files $uri $uri/ /index.php?$query_string;
-
 		autoindex on;
-	autoindex_exact_size off;
-
+		autoindex_exact_size off;
 	}
 
 	location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/run/php/php7.4-fpm.sock;
-	}
+		include snippets/fastcgi-php.conf;' >> /etc/nginx/sites-available/$host_name.conf
+
+	sudo echo -e "		fastcgi_pass unix:/run/php/php$php_version-fpm.sock;" >> /etc/nginx/sites-available/$host_name.conf
+	
+	sudo echo -e '	}
 
 	location ~ /\.ht {
 		deny all;
 	}
-}
-	' >> /etc/nginx/sites-available/$host_name.conf
+}' >> /etc/nginx/sites-available/$host_name.conf
 
 	sudo ln -s /etc/nginx/sites-available/$host_name.conf /etc/nginx/sites-enabled/.
 	
