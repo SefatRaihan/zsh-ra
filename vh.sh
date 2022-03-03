@@ -6,7 +6,7 @@ read -p $'\e[0;33m'"Project Path : "$'\e[0m' project_path
 
 read -p $'\e[0;33m'"PHP Version : "$'\e[0m' php_version
 
-if [ ${#host_name} -gt 0 ] && [ ${#project_path} -gt 0 && [ ${#php_version} -gt 0 ]; then
+if [ ${#host_name} -gt 0 ] && [ ${#project_path} -gt 0 ] && [ ${#php_version} -gt 0 ]; then
 
 	sudo cat > /etc/nginx/sites-available/$host_name.conf <<-EOF 
 	server { 
