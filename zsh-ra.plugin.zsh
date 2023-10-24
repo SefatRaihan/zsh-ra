@@ -1,5 +1,5 @@
-#Author : Rabbi Ahamed
-#Email : RabbiAhamed0728@gmail.com
+#Author : Sefat Raihan
+#Email : sefatraihan75@gmail.com
 
 alias pa='php artisan'
 alias pas='php artisan serve'

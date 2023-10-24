@@ -5,7 +5,7 @@
 1. Clone this repository into `$ZSH_CUSTOM/plugins` (by default `~/.oh-my-zsh/custom/plugins`)
 
     ```sh
-    git clone https://github.com/Rabbi728/zsh-ra ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ra
+    git clone https://github.com/SefatRaihan/zsh-virtual-host-.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ra
     ```
 
 2. Add the plugin to the list of plugins for Oh My Zsh to load (inside `~/.zshrc`):

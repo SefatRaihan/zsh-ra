@@ -1,4 +1,4 @@
-#!/bin/bash
+#/ !/bin/bash
 
 read -p $'\e[0;33m'"Your Virtual Host : "$'\e[0m' host_name;
 
